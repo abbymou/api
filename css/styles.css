@@ -1,0 +1,24 @@
+/*styles*/
+
+/* NAV */
+.center {
+  text-align: center;
+}
+
+/* MAIN */
+html, body {
+        height: 100%;
+        margin: 20px;
+      }
+
+/* maps */
+#map {
+  position: absolute;
+  height: 60%;
+  width: 60%;
+  margin: 10px;
+}
+
+#news {
+  margin-top: 50%;
+}
