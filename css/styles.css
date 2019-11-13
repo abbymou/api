@@ -9,6 +9,7 @@
 html, body {
         height: 100%;
         margin: 20px;
+        padding: 20px;
       }
 
 /* maps */
@@ -21,4 +22,10 @@ html, body {
 
 #news {
   margin-top: 50%;
+}
+
+.float-right {
+    float:right;
+    border: 1px solid black;
+    margin-top:20px;
 }

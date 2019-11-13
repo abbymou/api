@@ -72,7 +72,6 @@ function parseArticles(data){
 
   for (var i = 0, len = tempPath.length; i < len; ++i){
     articles.push(tempPath[i]);
-    console.log(articles[i]["title"]);
 
     html += '<div><h3><a href="' + articles[i]["url"] + '">' + articles[i]["title"] + '</a></h3></div>'
     html += '<p>' + articles[i]["description"] + '</p>'
@@ -129,27 +128,26 @@ $("#feed-area").html(html);
   function loadTweets(){
       $.ajax({
               type:"GET",
-              url: "../tweets.json",
+              url: "tweets.json",
               dataType:"json",
               success: parseTweets
             });
-        console.log('loaded')
     }
 
   function parseTweets(data){
-
-    var tweets = [];
-    var tempPath3 = data["tweets"];
     var twitterHtml = "";
+    for (var i = 0; i < data.length; ++i) {
 
-    for (var i = 0, len3 = tempPath3.length; i < len3; ++i) {
-      //sets data to arrays
-      tweets.push(tempPath3[i]);
-      console.log(tweets[0]["userName"]);
+      var id = data[i].id;
+      var user = data[i].screenName;
+      var img = data[i].profileImage;
+      var text = data[i].text;
 
-      twitterHtml += '<p>' + tweets[i]["userName"] + '</p>'
+      twitterHtml += '<div><img src="' + img + '">';
+      twitterHtml += '<h4>' + user + '</h4>';
+      twitterHtml += '<p>' + text + '</p></div>';
     }
 
     $("#tweets").html(twitterHtml);
 
-}
+  }
